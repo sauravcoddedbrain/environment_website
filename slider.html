@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    
+    <style>
+        
+        body {
+  margin: 0 auto;
+  height: 100vh;
+  background: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-container {
+  height: 35rem;
+  width: 100vw;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  position: relative;
+  margin-top: 2rem;
+}
+
+.slider-title{
+  position: absolute;
+  top: 0;
+  font-family: 'Papyrus', Fantasy;
+  font-size: 20px;
+}
+
+.left-arrow,
+.right-arrow {
+  height: 100%;
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-content {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  overflow: hidden;
+  position: relative;
+  perspective: 100px;
+}
+.slider-content-background {
+  height: 100%;
+  width: 102%;
+  position: absolute;
+  top: 0;
+  left: -1%;
+  background: linear-gradient(
+    to left,
+    #f1f1f1,
+    transparent,
+    transparent,
+    transparent,
+    #f1f1f1
+  );
+  z-index: 3;
+}
+.slider-content .slide {
+  position: absolute;
+  left: 50%;
+  height: 24rem;
+  max-height: 400px;
+  width: 14rem;
+  min-width: 270px;
+  background: #999;
+/*   border: 1px solid; */
+  border-radius: 25px;
+  left: 50%;
+  z-index: 0;
+/*   opacity: 0; */
+  transform: translate(-50%, 0) rotateY(0deg) scale(1,1);
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, left 0.5s ease-in-out,
+    z-index 0s 0.25s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+.slide.position-1 {
+  left: 20% !important;
+  z-index: 1 !important;
+  transform: translate(-50%, 0) rotateY(-2deg) scale(0.8, 0.8) !important;
+  opacity: 1 !important;
+  box-shadow: 0px 0.4rem 1.6rem rgba(0, 0, 0, 0.1) !important;
+  
+}
+.slide.position-2 {
+  left: 35% !important;
+  z-index: 2 !important;
+  transform: translate(-50%, 0) rotateY(-1deg) scale(0.9, 0.9) !important;
+  opacity: 1 !important;
+  box-shadow: 0px 0.4rem 1.6rem rgba(0, 0, 0, 0.3) !important;
+  
+}
+.slide.position-3 {
+  left: 50% !important;
+  z-index: 4 !important;
+  transform: translate(-50%, 0) rotateY(0deg) scale(1, 1) !important;
+  opacity: 1 !important;
+  box-shadow: 0px 0.4rem 1.6rem rgba(0, 0, 0, 0.5) !important;
+  cursor: pointer;
+}
+.slide.position-3:hover {
+  box-shadow: 0px 0rem 1.8rem rgba(0, 0, 0, 0.7) !important;
+  transform: translate(-50%, 0) rotateY(0deg) scale(1.05, 1.05) !important;
+}
+.slide.position-4 {
+  left: 65% !important;
+  z-index: 2 !important;
+  transform: translate(-50%, 0) rotateY(1deg) scale(0.9, 0.9) !important;
+  opacity: 1 !important;
+  box-shadow: 0px 0.4rem 1.6rem rgba(0, 0, 0, 0.3) !important;
+/*   animation: center-animation 1s 1s linear 1 forwards; */
+}
+@keyframes center-animation{
+  0%{
+    left: 70% !important;
+    transform: translate(-50%, 0) rotateY(1deg) scale(0.9, 0.9) !important;
+  }
+  50%{
+    left: 75% !important;
+    transform: translate(-50%, 0) rotateY(-2deg) scale(1.1, 1.1) !important;
+  }
+  100%{
+    left: 50% !important;
+    transform: translate(-50%, 0) rotateY(0deg) scale(1, 1) !important;
+  }
+}
+.slide.position-5 {
+  left: 80% !important;
+  z-index: 1 !important;
+  transform: translate(-50%, 0) rotateY(2deg) scale(0.8, 0.8) !important;
+  opacity: 1 !important;
+  box-shadow: 0px 0.4rem 1.6rem rgba(0, 0, 0, 0.1) !important;
+  
+}
+
+.slide.position-none{
+   left: 50%;
+  z-index: 0;
+  transform: translate(-50%, 0) rotateY(0deg) scale(0.7, 0.7);
+  opacity: 1;
+  box-shadow: 0px 0.4rem 1.6rem rgba(0, 0, 0, 0);
+}
+
+.slider-container i{
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.slider-container .left-arrow:hover i, .slider-container .right-arrow:hover i{
+  background: rgba(22,22,220,0.1);
+  color: #fff;
+}
+
+
+.slider-content .slide .card-sections .upper-section, .slider-content .slide .card-button{
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.slider-content .slide.position-3 .card-sections .upper-section, .slider-content .slide.position-3 .card-button{
+  opacity: 1;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.slide > *{
+  color: white;
+  font-family: 'Inter';
+  font-size: 90%;
+  letter-spacing: -0.001em;
+}
+
+.media, .card-sections{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  overflow: hidden;
+}
+.media{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.media img{
+  position: absolute;
+  height: 30rem;
+}
+
+.card-sections{
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.upper-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.lower-section{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card-sections .lower-section .card-button{
+  border: 0.5px solid #fff;
+  width: 35%;
+  padding: 0.5rem;
+  border-radius: 2rem;
+  font-size: 60%;
+  text-align: center;
+  background: rgba(0,0,0,0.3);
+}
+.upper-section .wishlist, .upper-section .cart{
+  background: rgba(0,0,0,0.3);
+  border-radius: 50%;
+  transition: color 0.2s ease-in-out, background 0.2s ease-in-out ;
+}
+.upper-section .cart:hover{
+  color: rgb(252, 163, 60);
+  background: rgba(0,0,0,0.4);
+} 
+.upper-section .wishlist:hover{
+  color: rgb(244, 129, 129);
+  background: rgba(0,0,0,0.4);
+}
+
+@media screen and (max-width:620px){
+.slide.position-1, .slide.position-5 {
+  opacity: 0.5 !important;
+  }
+  .slide.position-2, .slide.position-4 {
+  opacity: 0.95 !important;
+}
+} 
+  
+@media screen and (max-width: 445px){
+  .slide.position-1, .slide.position-5 {
+  opacity: 0 !important;
+  }
+.slide.position-2, .slide.position-4 {
+  opacity: 0.5 !important;
+}
+}
+@media screen and (max-width: 415px){
+  .slide{
+    opacity: 0 !important;
+    box-shadow: none !important;
+  }
+  .slide.position-3{
+    box-shadow: none !important;
+    opacity: 1 !important;
+  }
+  .slide.position-1, .slide.position-2 {
+    left: -50% !important;
+    transform: translate(-50%, 0) rotateY(0deg) scale(0.7, 0.7) !important;
+  }
+  .slide.position-4, .slide.position-5 {
+    left: 150% !important;
+    transform: translate(-50%, 0) rotateY(0deg) scale(0.7, 0.7) !important;
+  }
+}
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <h4 class='slider-title'>Slider</h4>
+        <div class="left-arrow"><i class="fa fa-angle-left" style="font-size:24px"></i></div>
+        <div class="slider-content" id='slider-content'>
+          <div class='slide'>
+            <div class="media">
+              <img src="https://e1.pxfuel.com/desktop-wallpaper/604/743/desktop-wallpaper-best-cards-to-pull-from-pokemon-tcg-fusion-strike-vmax-gengar.jpg" alt="">
+              <video src=""></video>
+            </div>
+            <div class="card-sections">
+              
+              <div class="upper-section">
+                <div class="wishlist"><i class="fa fa-heart"></i></div>
+                <div class="cart"><i class="fa fa-cart-plus"></i></div>
+              </div>
+              
+              <div class="lower-section">
+                <div class="card-caption">
+                  Gengar
+                </div>
+                <div class="card-button">
+                  know more
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <div class='slide'>
+            <div class="media">
+              <img src="https://e0.pxfuel.com/wallpapers/244/435/desktop-wallpaper-pokemon-pokemon-lugia-pokemon-poster-pokemon-realistic-cool-lugia.jpg" alt="">
+              <video src=""></video>
+            </div>
+            <div class="card-sections">
+              <div class="upper-section">
+                <div class="wishlist"><i class="fa fa-heart"></i></div>
+                <div class="cart"><i class="fa fa-cart-plus"></i></div>
+              </div>
+              <div class="lower-section">
+                <div class="card-caption">
+                  Lugia
+                </div>
+                <div class="card-button">
+                  know more
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='slide'>
+            <div class="media">
+              <img src="https://e0.pxfuel.com/wallpapers/827/281/desktop-wallpaper-kir00-on-lucario-mega-and-riolu-pokemon-cool-pokemon-pokemon-cute-riolu.jpg" alt="">
+              <video src=""></video>
+            </div>
+            <div class="card-sections">
+              <div class="upper-section">
+                <div class="wishlist"><i class="fa fa-heart"></i></div>
+                <div class="cart"><i class="fa fa-cart-plus"></i></div>
+              </div>
+              <div class="lower-section">
+                <div class="card-caption">
+                  Lucario
+                </div>
+                <div class="card-button">
+                  know more
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='slide'>
+            <div class="media">
+              <img src="https://e0.pxfuel.com/wallpapers/366/829/desktop-wallpaper-pokemon-sword-and-shield-tcg-tip-zacian-and-zamazenta.jpg" alt="">
+              <video src=""></video>
+            </div>
+            <div class="card-sections">
+              <div class="upper-section">
+                <div class="wishlist"><i class="fa fa-heart"></i></div>
+                <div class="cart"><i class="fa fa-cart-plus"></i></div>
+              </div>
+              <div class="lower-section">
+                <div class="card-caption">
+                  Zacian
+                </div>
+                <div class="card-button">
+                  know more
+                </div>
+              </div>
+            </div>
+              
+            </div>
+          <div class='slide'>
+            <div class="media">
+              <img src="https://e0.pxfuel.com/wallpapers/254/462/desktop-wallpaper-mega-charizard-pokemon-cute-pokemon-cool-pokemon.jpg" alt="">
+              <video src=""></video>
+            </div>
+            <div class="card-sections">
+              
+              <div class="upper-section">
+                <div class="wishlist"><i class="fa fa-heart"></i></div>
+                <div class="cart"><i class="fa fa-cart-plus"></i></div>
+              </div>
+              
+              <div class="lower-section">
+                <div class="card-caption">
+                  Mega Charizard
+                </div>
+                <div class="card-button">
+                  know more
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='slide'>
+            <div class="media">
+              <img src="https://e1.pxfuel.com/desktop-wallpaper/297/1019/desktop-wallpaper-pldh-%E2%9A%94%EF%B8%8F-pokemon-zacian.jpg" alt="">
+              <video src=""></video>
+            </div>
+            <div class="card-sections">
+              <div class="upper-section">
+                <div class="wishlist"><i class="fa fa-heart"></i></div>
+                <div class="cart"><i class="fa fa-cart-plus"></i></div>
+              </div>
+              <div class="lower-section">
+                <div class="card-caption">
+                  Zacian and Zamazenta
+                </div>
+                <div class="card-button">
+                  know more
+                </div>
+              </div>
+            </div></div>
+          <div class='slide'>
+            <div class="media">
+              <img src="https://e1.pxfuel.com/desktop-wallpaper/508/779/desktop-wallpaper-pokemon-iphone-gallery-vmax-pokemon.jpg" alt="">
+              <video src=""></video>
+            </div>
+            <div class="card-sections">
+              
+              <div class="upper-section">
+                <div class="wishlist"><i class="fa fa-heart"></i></div>
+                <div class="cart"><i class="fa fa-cart-plus"></i></div>
+              </div>
+              
+              <div class="lower-section">
+                <div class="card-caption">
+                  Lucario
+                </div>
+                <div class="card-button">
+                  know more
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <div class='slide'>
+            <div class="media">
+              <img src="https://e1.pxfuel.com/desktop-wallpaper/218/426/desktop-wallpaper-pokemon-tcg-dragon-majesty-pokemon-card.jpg" alt="">
+              <video src=""></video>
+            </div>
+            <div class="card-sections">
+              <div class="upper-section">
+                <div class="wishlist"><i class="fa fa-heart"></i></div>
+                <div class="cart"><i class="fa fa-cart-plus"></i></div>
+              </div>
+              <div class="lower-section">
+                <div class="card-caption">
+                  Charizard
+                </div>
+                <div class="card-button">
+                  know more
+                </div>
+              </div>
+            </div>
+              
+            </div>
+          <div class="slider-content-background"></div>
+        </div>
+        <div class="right-arrow"><i class="fa fa-angle-right" style="font-size:24px"></i></div>
+      </div>
+</body>
+
+<script>
+    
+// This slider is for atleast 5 numbers of slides to n numbers of slides
+// you can go through by clicking left or right button or swipe left or right
+
+var sliders = document.querySelectorAll(".slide");
+var center = Math.floor(sliders.length / 2);
+var leftEndBack = center - 3 >= 0? center - 3 : undefined;
+var leftEnd = center - 2 >= 0? center - 2 : undefined;
+var leftMid = center - 1 >= 0? center - 1 : undefined;
+var rightMid = center + 1 < sliders.length? center + 1 : undefined;
+var rightEnd = center + 2 < sliders.length? center + 2 : undefined;
+var rightEndBack = center + 3 < sliders.length? center + 3 : undefined;
+let touchstartX = 0
+let touchendX = 0
+let container = document.getElementById('slider-content');
+
+if (leftEndBack != undefined) sliders[leftEndBack].classList.add("position-none");
+if (leftEnd != undefined) sliders[leftEnd].classList.add("position-1");
+if (leftMid != undefined) sliders[leftMid].classList.add("position-2");
+if (center != undefined) sliders[center].classList.add("position-3");
+if (rightMid != undefined) sliders[rightMid].classList.add("position-4");
+if (rightEnd != undefined) sliders[rightEnd].classList.add("position-5");
+if (rightEndBack != undefined) sliders[rightEndBack].classList.add("position-none");
+
+if (sliders.length > 0) $('.slide').addClass('position-none');
+
+
+function leftScroll(){
+  
+  if(leftEndBack != undefined){
+    sliders[leftEndBack].classList.remove("position-none");
+    sliders[leftEndBack].classList.add("position-1");
+  }
+  else{
+    sliders[rightEnd].classList.remove("position-none");
+    sliders[rightEnd].classList.add("position-1");
+  }
+  
+  if(leftEnd != undefined){
+    sliders[leftEnd].classList.remove("position-1");
+    sliders[leftEnd].classList.add("position-2");
+  }
+  
+  if(leftMid != undefined){
+    sliders[leftMid].classList.remove("position-2");
+    sliders[leftMid].classList.add("position-3");
+  }
+  
+  if(center != undefined){
+    sliders[center].classList.remove("position-3");
+    sliders[center].classList.add("position-4");
+  }
+  
+  if(rightMid != undefined){
+    sliders[rightMid].classList.remove("position-4");
+    sliders[rightMid].classList.add("position-5");
+  }
+  
+  if(rightEnd != undefined){
+    sliders[rightEnd].classList.remove("position-5");
+    sliders[rightMid].classList.add("position-none");
+  }
+  
+  leftEndBack != undefined ? leftEndBack-- : leftEndBack;
+  leftEnd != undefined? leftEnd-- : leftEnd;
+  leftMid != undefined? leftMid-- : leftMid;
+  center != undefined? center-- : center;
+  rightMid != undefined? rightMid-- : rightMid;
+  rightEnd != undefined? rightEnd-- : rightEnd;
+  rightEndBack != undefined ? rightEndBack-- : rightEndBack;
+  
+  if(leftEndBack != undefined && leftEndBack == -1)
+    leftEndBack = sliders.length - 1;
+  if(leftEnd != undefined && leftEnd == -1)
+    leftEnd = sliders.length - 1;
+  if(leftMid != undefined && leftMid == -1)
+    leftMid = sliders.length - 1;
+  if(center != undefined && center == -1)
+    center = sliders.length - 1;
+  if(rightMid != undefined && rightMid == -1)
+    rightMid = sliders.length - 1;
+  if(rightEnd != undefined && rightEnd == -1)
+    rightEnd = sliders.length - 1;
+  if(rightEndBack != undefined && rightEndBack == -1)
+    rightEndBack = sliders.length - 1;
+}
+
+function rightScroll(){
+  
+  if(leftEnd != undefined){
+    sliders[leftEnd].classList.remove("position-1");
+    sliders[leftEnd].classList.add("position-none");
+  }  
+  if(leftMid != undefined){
+    sliders[leftMid].classList.remove("position-2");
+    sliders[leftMid].classList.add("position-1");
+  }  
+  if(center != undefined){
+    sliders[center].classList.remove("position-3");
+    sliders[center].classList.add("position-2");
+  }  
+  if(rightMid != undefined){
+    sliders[rightMid].classList.remove("position-4");
+    sliders[rightMid].classList.add("position-3");
+  }  
+  if(rightEnd != undefined){
+    sliders[rightEnd].classList.remove("position-5");
+    sliders[rightEnd].classList.add("position-4");
+  }
+  if(rightEndBack != undefined){
+    sliders[rightEndBack].classList.remove("position-none");
+    sliders[rightEndBack].classList.add("position-5");
+  }
+  else if(leftEndBack != undefined){
+    sliders[leftEndBack].classList.remove("position-none");
+    sliders[leftEndBack].classList.add("position-5");
+  }
+  else{
+    sliders[leftEnd].classList.remove("position-none");
+    sliders[leftEnd].classList.add("position-5");
+  }
+  
+  leftEndBack != undefined? leftEndBack++ : leftEndBack;
+  leftEnd != undefined? leftEnd++ : leftEnd;
+  leftMid != undefined? leftMid++ : leftMid;
+  center != undefined? center++ : center;
+  rightMid != undefined? rightMid++ : rightMid;
+  rightEnd != undefined? rightEnd++ : rightEnd;
+  rightEndBack != undefined? rightEndBack++ : rightEndBack;
+
+  if(leftEndBack != undefined && leftEndBack == sliders.length)
+    leftEndBack = 0;
+  if(leftEnd != undefined && leftEnd == sliders.length)
+    leftEnd = 0;
+  if(leftMid != undefined && leftMid == sliders.length)
+    leftMid = 0;
+  if(center != undefined && center == sliders.length)
+    center = 0;
+  if(rightMid != undefined && rightMid == sliders.length)
+    rightMid = 0;
+  if(rightEnd != undefined && rightEnd == sliders.length)
+    rightEnd = 0;
+  if(rightEndBack != undefined && rightEndBack == sliders.length)
+    rightEndBack = 0;
+}
+
+class Swipe {
+    constructor(element) {
+        this.xDown = null;
+        this.yDown = null;
+        this.element = typeof(element) === 'string' ? document.querySelector(element) : element;
+
+        this.element.addEventListener('touchstart', function(evt) {
+            this.xDown = evt.touches[0].clientX;
+            this.yDown = evt.touches[0].clientY;
+        }.bind(this), false);
+
+    }
+
+    onLeft(callback) {
+        this.onLeft = callback;
+
+        return this;
+    }
+
+    onRight(callback) {
+        this.onRight = callback;
+
+        return this;
+    }
+
+    handleTouchMove(evt) {
+        if ( ! this.xDown || ! this.yDown ) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;
+        var yUp = evt.touches[0].clientY;
+
+        this.xDiff = this.xDown - xUp;
+        this.yDiff = this.yDown - yUp;
+
+        if ( Math.abs( this.xDiff ) > Math.abs( this.yDiff ) ) { 
+            if ( this.xDiff > 0 ) {
+                this.onLeft();
+            } else {
+                this.onRight();
+            }
+        } else {
+            if ( this.yDiff > 0 ) {
+                this.onUp();
+            } else {
+                this.onDown();
+            }
+        }
+
+        this.xDown = null;
+        this.yDown = null;
+    }
+
+    run() {
+        this.element.addEventListener('touchmove', function(evt) {
+            this.handleTouchMove(evt).bind(this);
+        }.bind(this), false);
+    }
+}
+
+var swiper = new Swipe(container);
+
+
+//left scroll
+$(".left-arrow").on("click", leftScroll);
+
+swiper.onRight(function () {
+  leftScroll();
+});
+swiper.run();
+
+$(".position-2").on("click", function(){
+  leftScroll();
+});
+
+$(".position-1").on("click", function(){
+  leftScroll();
+  leftScroll();
+});
+
+
+
+// right scroll
+$(".right-arrow").on("click", rightScroll);
+
+swiper.onLeft(function () {
+  rightScroll();
+});
+swiper.run();
+
+$(".position-4").on("click", function(){
+  rightScroll();
+});
+
+$(".position-5").on("click", function(){
+  rightScroll();
+  rightScroll();
+});
+
+</script>
+</html>
