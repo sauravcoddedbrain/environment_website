@@ -1,347 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>KNOWLEDGE ABOUT ENVIRONMENT</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://use.typekit.net/vpm3oax.css?ver=1.7.4" media="all">
-   <style>
-
-* {
-  margin: 0;
-  padding: 0;
-  
-}
-a {
-  color: #fff;
-  text-decoration: none;
-}
-.pg-footer {
-  font-family: 'Roboto', sans-serif;
-}
-
-
-.footer {
-    /* background: rgb(2,0,36);  */
-    background: linear-gradient(90deg, rgba(31, 182, 114, 0.746) 10%, rgb(18, 200, 63) 70%);
-    color: #fff;
-}
-.footer-wave-svg {
-    background-color: transparent;
-    display: block;
-    height: 30px;
-    position: relative;
-    top: -1px;
-    width: 100%;
-}
-.footer-wave-path {
-    fill: #fffff2;
-}
-
-.footer-content {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1230px;
-    padding: 40px 15px 450px;
-    position: relative;
-}
-
-.footer-content-column {
-    box-sizing: border-box;
-    float: left;
-    padding-left: 15px;
-    padding-right: 15px;
-    width: 100%;
-    color: #fff;
-}
-
-.footer-content-column ul li a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.footer-logo-link {
-    display: inline-block;
-}
-.footer-menu {
-    margin-top: 30px;
-}
-
-.footer-menu-name {
-    color: #fffff2;
-    font-size: 15px;
-    font-weight: 900;
-    letter-spacing: .1em;
-    line-height: 18px;
-    margin-bottom: 0;
-    margin-top: 0;
-    text-transform: uppercase;
-}
-.footer-menu-list {
-    list-style: none;
-    margin-bottom: 0;
-    margin-top: 10px;
-    padding-left: 0;
-}
-.footer-menu-list li {
-    margin-top: 5px;
-}
-
-.footer-call-to-action-description {
-    color: #fffff2;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-.footer-call-to-action-button:hover {
-    background-color: #fffff2;
-    color: #00bef0;
-}
-.button:last-of-type {
-    margin-right: 0;
-}
-.footer-call-to-action-button {
-    background: linear-gradient(90deg, rgba(31, 182, 114, 0.746) 10%, rgb(18, 200, 63) 70%);
-    border-radius: 21px;
-    color: #fffff2;
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: .1em;
-    line-height: 18px;
-    padding: 12px 30px;
-    margin: 0 10px 10px 0;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: background-color .2s;
-    cursor: pointer;
-    position: relative;
-}
-.footer-call-to-action {
-    margin-top: 30px;
-}
-.footer-call-to-action-title {
-    color: #fffff2;
-    font-size: 14px;
-    font-weight: 900;
-    letter-spacing: .1em;
-    line-height: 18px;
-    margin-bottom: 0;
-    margin-top: 0;
-    text-transform: uppercase;
-}
-.footer-call-to-action-link-wrapper-fluid-fluid {
-    margin-bottom: 0;
-    margin-top: 10px;
-    color: #fff;
-    text-decoration: none;
-}
-.footer-call-to-action-link-wrapper-fluid-fluid a {
-    color: #fff;
-    text-decoration: none;
-}
-
-
-
-
-
-.footer-social-links {
-    bottom: 0;
-    height: 54px;
-    position: absolute;
-    right: 0;
-    width: 236px;
-}
-
-.footer-social-amoeba-svg {
-    height: 54px;
-    left: 0;
-    display: block;
-    position: absolute;
-    top: 0;
-    width: 236px;
-}
-
-.footer-social-amoeba-path {
-    fill: rgb(47, 210, 47);
-    
-}
-
-.footer-social-link.linkedin {
-    height: 26px;
-    left: 3px;
-    top: 11px;
-    width: 26px;
-}
-
-.footer-social-link {
-    display: block;
-    padding: 10px;
-    position: absolute;
-}
-
-.hidden-link-text {
-    position: absolute;
-    clip: rect(1px 1px 1px 1px);
-    clip: rect(1px,1px,1px,1px);
-    -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
-    clip-path: inset(0px 0px 99.9% 99.9%);
-    overflow: hidden;
-    height: 1px;
-    width: 1px;
-    padding: 0;
-    border: 0;
-    top: 50%;
-}
-
-.footer-social-icon-svg {
-        display: block;
-    height: 30px;
-    justify-content: center;
-    align-items: center;
-    
-}
-
-
-.footer-social-icon-path {
-    fill: #fffff2;
-    transition: fill .2s;
-}
-
-.footer-social-link.twitter {
-    height: 28px;
-    left: 62px;
-    top: 3px;
-    width: 28px;
-}
-
-.footer-social-link.youtube {
-    height: 24px;
-    left: 123px;
-    top: 12px;
-    width: 24px;
-}
-
-.footer-social-link.github {
-    height: 34px;
-    left: 172px;
-    top: 7px;
-    width: 34px;
-}
-
-.footer-copyright {
-    /* background-color: #027b9a; */
-    background: linear-gradient(90deg, rgba(31, 182, 114, 0.746) 10%, rgb(18, 200, 63) 70%);
-    color: #fff;
-    padding: 15px 30px;
-  text-align: center;
-}
-
-.footer-copyright-wrapper-fluid-fluid {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1200px;
-}
-
-.footer-copyright-text {
-  color: #fff;
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 18px;
-    margin-bottom: 0;
-    margin-top: 0;
-}
-
-.footer-copyright-link {
-    color: #fff;
-    text-decoration: none;
-}
-
-
-
-
-
-
-
-/* Media Query For different screens */
-@media (min-width:320px) and (max-width:479px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-  .footer-content {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1230px;
-    padding: 40px 15px 1050px;
-    position: relative;
-  }
-}
-@media (min-width:480px) and (max-width:599px)  { /* smartphones, Android phones, landscape iPhone */
-  .footer-content {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1230px;
-    padding: 40px 15px 1050px;
-    position: relative;
-  }
-}
-@media (min-width:600px) and (max-width: 800px)  { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-  .footer-content {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1230px;
-    padding: 40px 15px 1050px;
-    position: relative;
-  }
-}
-@media (min-width:801px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */
-
-}
-@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */
-
-}
-@media (min-width:1281px) { /* hi-res laptops and desktops */
-
-}
-
-
-
-
-@media (min-width: 760px) {
-  .footer-content {
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 1230px;
-      padding: 40px 15px 450px;
-      position: relative;
-  }
-
-  .footer-wave-svg {
-      height: 50px;
-  }
-
-  .footer-content-column {
-      width: 24.99%;
-  }
-}
-@media (min-width: 568px) {
-  /* .footer-content-column {
-      width: 49.99%;
-  } */
-}
-.dropdown-menu{
-    background: linear-gradient(90deg, rgba(31, 182, 114, 0.746) 10%, rgb(18, 200, 63) 70%); 
-}
-.dropdown-item{
-    color: #fff;
-}
-
-
-
-   </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="indexstyle.css">
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg" style="  background: linear-gradient(90deg, rgba(31, 182, 114, 0.746) 10%, rgb(18, 200, 63) 70%); ">
         <div class="container-fluid">
@@ -363,15 +33,10 @@ a {
                             Our Pages
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item"  href="#">Green Environment</a></li>
-                            <li><a class="dropdown-item" href="#">Clean Environment</a></li>
                             <li><a class="dropdown-item" href="#">Reduce</a></li>
                             <li><a class="dropdown-item" href="#">Reuse</a></li>
                             <li><a class="dropdown-item" href="#">Recycle</a></li>
-
-
-
-                        </ul>
+                          </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" style="color: #fffff2;" href="contact.html">Contact-Us</a>
@@ -459,37 +124,211 @@ a {
         </div><Br>
         <div class="row">
           <div class="col-12">
-            <h1 class="text-center">TOP 3 ECO-FRIENDLY CITIES IN INDIA</h1>
-            
+            <h1 class="text-center" style="font-style: italic;">TOP 3 ECO-FRIENDLY CITIES IN INDIA</h1>
           </div>
         </div><br>
         <div class="row">
           <div class="col-4">
-            <u><h2 class="text-center">MYSORE</h2></u>
+            <u><h2 class="text-center" style="font-style: oblique;">MYSORE</h2></u>
             <p class="text-success" style="font-style: italic;">Mysore is India's 1st and most greenest city in India, even though it is the third highest populated city in Karnataka. Swachh Bharat Urban felicitated and classified Mysore as the greenest city of India. Mysore is the 2nd largest city (by area) in Karnataka and due to its cultural heritage and strategic location, it is one of the best-planned cities.</p>
             <img src="https://www.re-thinkingthefuture.com/wp-content/uploads/2020/08/A1521-10-Greenest-cities-in-India-every-architect-must-know-about-Mysore-Image-1.jpg" class="img-thumbnail" alt="...">
           </div>
            <div class="col-4">
-            <u><h2 class="text-center">CHANDIGARH</h2></u>
+            <u><h2 class="text-center" style="font-style: oblique;">CHANDIGARH</h2></u>
             <p class="text-success" style="font-style: italic;">Chandigarh is one of the first planned cities of India. The urban infrastructure, in conjunction with the protected greenery, makes it one of the top greenest cities in India. Chandigarh is located near the foothills of the Shivalik range of the Himalayas and is the joint capital of Punjab and Haryana; it has a forest and tree cover of 35.5 percent in its 114-sq km area.</p>
             <img src="https://chandigarhmetro.com/wp-content/uploads/2017/04/no-of-trees.jpg" class="img-thumbnail" alt="...">
           </div>
           <div class="col-4">
-            <u><h2 class="text-center">BANGALORE</h2></u>
+            <u><h2 class="text-center" style="font-style: oblique;">BANGALORE</h2></u>
             <p class="text-success" style="font-style: italic;">Bangalore or Bengaluru is the capital of the Indian state of Karnataka, and is also known as “The Garden City”. This fast-growing city has a pleasant climate, scenic gardens, parks, and natural lakes.  As of date, the city has around 333 green buildings and a total of 227.92 million sqm of green space that is certified by the IGBC -a wing of the Confederation of Indian Industries (CII). </p>
             <img src="https://www.re-thinkingthefuture.com/wp-content/uploads/2020/08/A1521-10-Greenest-cities-in-India-every-architect-must-know-about-Bangalore-Image-1.jpg" class="img-thumbnail" alt="...">
           </div>
         </div><br>
-        
-              
-        
-              
-    </div>
-<br>
-
-
-
-
+        <div class="slider-container-fluid">
+          <h1 class='slider-title'>🌲OUR ENVIRONMENT🌲</h1>
+          <div class="left-arrow"><i class="fa fa-angle-left" style="font-size:24px"></i></div>
+          <div class="slider-content" id='slider-content'>
+            <div class='slide'>
+              <div class="media">
+                <img src="https://c.tadst.com/gfx/750w/four-hands-holding-saplings-in-soil.jpg" alt="">
+                <video src=""></video>
+              </div>
+              <div class="card-sections">
+                <div class="upper-section">
+                </div>
+                <div class="lower-section">
+                  <div class="card-caption">
+                    ENVIRONMENT
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            <div class='slide'>
+              <div class="media">
+                <img src="https://www.fastweb.com/uploads/article_photo/photo/2036160/Simple_Environment.jpeg" alt="">
+                <video src=""></video>
+              </div>
+              <div class="card-sections">
+                <div class="upper-section">
+                </div>
+                <div class="lower-section">
+                  <div class="card-caption">
+                    ENVIRONMENT
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class='slide'>
+              <div class="media">
+                <img src="https://cdn.pixabay.com/photo/2014/04/17/23/26/environmental-protection-326923_1280.jpg" alt="">
+                <video src=""></video>
+              </div>
+              <div class="card-sections">
+                <div class="upper-section">
+                </div>
+                <div class="lower-section">
+                  <div class="card-caption">
+                    ENVIRONMENT
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class='slide'>
+              <div class="media">
+                <img src="https://media.istockphoto.com/id/1181366400/photo/in-the-hands-of-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-on.jpg?s=612x612&w=0&k=20&c=jWUMrHgjMY9zQXsAwZFb1jfM6KxZE16-IXI1bvehjQM=" alt="">
+                <video src=""></video>
+              </div>
+              <div class="card-sections">
+                <div class="upper-section">
+                </div>
+                <div class="lower-section">
+                  <div class="card-caption">
+                    ENVIRONMENT
+                  </div>
+                </div>
+              </div>
+              </div>
+            <div class='slide'>
+              <div class="media">
+                <img src="https://static.businessworld.in/article/article_extra_large_image/1654336287_iwSPBh_images_3_.jpeg" alt="">
+                <video src=""></video>
+              </div>
+              <div class="card-sections">
+                <div class="upper-section">
+                </div>
+                <div class="lower-section">
+                  <div class="card-caption">
+                    ENVIRONMENT
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class='slide'>
+              <div class="media">
+                <img src="https://www.epcworld.in/image/1623218674worldenvironmentday.jpg" alt="">
+                <video src=""></video>
+              </div>
+              <div class="card-sections">
+                <div class="upper-section">
+                </div>
+                <div class="lower-section">
+                  <div class="card-caption">
+                    ENVIRONMENT
+                  </div>
+                </div>
+              </div></div>
+            <div class='slide'>
+              <div class="media">
+                <img src="https://media.istockphoto.com/id/1327919661/photo/world-earth-day-concept-green-energy-renewable-and-sustainable-resources-environmental-and.jpg?s=612x612&w=0&k=20&c=6PvLRMFPI65ATEs-XWPJ_UOtkmSKoONOD4h7Lohq850=" alt="">
+                <video src=""></video>
+              </div>
+              <div class="card-sections">
+                <div class="upper-section">
+                </div>
+                <div class="lower-section">
+                  <div class="card-caption">
+                    ENVIRONMENT
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class='slide'>
+              <div class="media">
+                <img src="https://static6.depositphotos.com/1026550/670/i/950/depositphotos_6704345-stock-photo-environment-concept.jpg" alt="">
+                <video src=""></video>
+              </div>
+              <div class="card-sections">
+                <div class="upper-section">
+                </div>
+                <div class="lower-section">
+                  <div class="card-caption">
+                    ENVIRONMENT
+                  </div>
+                </div>
+              </div>
+              </div>
+            <div class="slider-content-background"></div>
+          </div>
+          <div class="right-arrow"><i class="fa fa-angle-right" style="font-size:24px"></i></div>
+        </div><br>
+        <div class="row">
+          <div class="col-6">
+           <u> <h2 class="text-center">ENVIRONMENT AND AI RELATIONSHIP:-</h2></u>
+            <p class="text-center" style="font-style: italic;">
+              Jensen highlights several areas where AI can play a role in tackling environmental challenges, from designing more energy-efficient buildings to monitoring deforestation to optimizing renewable energy deployment. 
+              We can't manage what we don't measure, goes the old business adage. This rings true more than ever today as the world faces a triple planetary crisis of climate change, nature and biodiversity loss, pollution, and waste.
+              More climate data is available than ever before, but how that data is accessed, interpreted and acted on is crucial to managing these crises. One technology that is central to this is Artificial Intelligence (AI).
+              So, what exactly does AI mean?
+              "AI refers to systems or machines that perform tasks that typically require human intelligence, and can iteratively improve themselves over time, based on the information they collect," says David Jensen, coordinator of the United Nations Environment Program's (UNEP's) Digital Transformation sub-programme.
+              Jensen highlights several areas where AI can play a role in tackling environmental challenges, from designing more energy-efficient buildings to monitoring deforestation to optimizing renewable energy deployment.
+              "This can be on a large scale such as satellite monitoring of global emissions, or a more granular scale such as a smart house automatically turning off lights or heat after a certain time," he adds.</p>
+          </div>
+          <div class="col-6">
+            <img src="https://cdn.majorel.com/wp-content/uploads/2019/03/01135522/cropped_158202214-1024x591.jpg" class="img-thumbnail" alt="...">
+          </div>
+        </div>
+        <div class="wrapper">
+          <div class="card">
+            <div class="face front">
+              <img src="https://thumbs.dreamstime.com/b/yellow-daisy-butterflies-25977678.jpg" alt="city">
+            </div>
+            <div class="face back">
+              <p class="text-white">
+                Environment is no one’s property to destroy; it’s everyone’s responsibility to protect. 
+              </p>
+              <div class="links">
+                <a class="link-white" href="#">Details</a>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="face front">
+              <img src="https://thumbs.dreamstime.com/b/camomile-field-23931722.jpg" alt="city">
+            </div>
+            <div class="face back">
+              <p class="text-white">
+                A nation that destroys its soils destroys itself. Forests are the lungs of our land, purifying the air and giving fresh strength to our people. 
+              </p>
+              <div class="links">
+                <a class="link-white" href="#">Details</a>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="face front">
+              <img src="https://thumbs.dreamstime.com/b/protect-environment-20282532.jpg" alt="city">
+            </div>
+            <div class="face back">
+              <p class="text-white">
+                Saving our planet, lifting people out of poverty, advancing economic growth… these are one and the same fight. We must connect the dots between climate change, water scarcity, energy shortages, global health, food security and women’s empowerment. Solutions to one problem must be solutions for all. 
+              </p>
+              <div class="links">
+                <a class="link-white" href="#">Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
 <div class="pg-footer">
     <footer class="footer">
       <svg class="footer-wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100" preserveAspectRatio="none">
@@ -512,9 +351,6 @@ a {
               <li class="menu-item menu-item-type-post_type menu-item-object-product">
                 <a href="#">Documentation</a>
               </li>
-              <!-- <li class="menu-item menu-item-type-post_type menu-item-object-product">
-                <a href="#">Installation</a> -->
-              <!-- </li> -->
             </ul>
           </div>
         </div>
@@ -613,14 +449,12 @@ a {
       <div class="footer-copyright">
         <div class="footer-copyright-wrapper-fluid-fluid">
           <p class="footer-copyright-text">
-            <a class="footer-copyright-link" href="#" target="_self"> ©2023. | Designed By: Saurav Singh . </a>
+            <a class="footer-copyright-link" href="#" target="_self"> ©2023. | Designed By: Saurav Singh. </a>
           </p>
         </div>
       </div>
     </footer>
   </div>
-  
-  
-
+<script src="indexscript.js"></script>
 </body>
 </html>
